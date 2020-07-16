@@ -33,6 +33,7 @@
 		4AD43D5024BF498B003944E8 /* WeatherDescriptionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD43D4F24BF498B003944E8 /* WeatherDescriptionModel.swift */; };
 		4AD43D5224BF4A66003944E8 /* WeatherMeasurementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD43D5124BF4A66003944E8 /* WeatherMeasurementModel.swift */; };
 		4AD43D5424BF4ECD003944E8 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD43D5324BF4ECD003944E8 /* CityModel.swift */; };
+		4AD43D5724BF505F003944E8 /* WeatherForecastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD43D5624BF505F003944E8 /* WeatherForecastService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		4AD43D4F24BF498B003944E8 /* WeatherDescriptionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDescriptionModel.swift; sourceTree = "<group>"; };
 		4AD43D5124BF4A66003944E8 /* WeatherMeasurementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMeasurementModel.swift; sourceTree = "<group>"; };
 		4AD43D5324BF4ECD003944E8 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
+		4AD43D5624BF505F003944E8 /* WeatherForecastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		4AB656E324BEF39600207F4E /* Weather Application */ = {
 			isa = PBXGroup;
 			children = (
+				4AD43D5524BF503F003944E8 /* Service */,
 				4AD43D4524BF27E0003944E8 /* Models */,
 				4AD43D4224BF2788003944E8 /* Utilities */,
 				4AD43D2E24BF2050003944E8 /* Constants */,
@@ -286,6 +289,14 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		4AD43D5524BF503F003944E8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4AD43D5624BF505F003944E8 /* WeatherForecastService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -422,6 +433,7 @@
 				4AB656E924BEF39600207F4E /* ViewController.swift in Sources */,
 				4AD43D4C24BF449B003944E8 /* WeatherForecastResult.swift in Sources */,
 				4AD43D3C24BF2556003944E8 /* NetworkRouter.swift in Sources */,
+				4AD43D5724BF505F003944E8 /* WeatherForecastService.swift in Sources */,
 				4AD43D4E24BF4638003944E8 /* WeatherForecastModel.swift in Sources */,
 				4AD43D2A24BF175F003944E8 /* WeatherAPI.swift in Sources */,
 				4AD43D3924BF23DD003944E8 /* HTTPURLParameterEncoder.swift in Sources */,

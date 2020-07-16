@@ -14,7 +14,7 @@ struct NetworkRouter<EndPoint: EndPointType> {
     /// - Parameter endPoint: must be a type confirming *EndPointType* protocol
     private func configureRequest(from endPoint: EndPoint) throws -> URLRequest {
         let baseURL = endPoint.baseURL
-        var urlRequest = URLRequest(url: baseURL.appendingPathComponent(endPoint.path), cachePolicy: endPoint.cachingPolicy, timeoutInterval: 3.0)
+        var urlRequest = URLRequest(url: baseURL.appendingPathComponent(endPoint.path), cachePolicy: endPoint.cachingPolicy, timeoutInterval: 60)
         urlRequest.httpMethod = endPoint.httpMethod.rawValue
         do {
             switch endPoint.task {
@@ -61,4 +61,5 @@ extension NetworkRouter: Router {
         return nil
 
     }
+
 }

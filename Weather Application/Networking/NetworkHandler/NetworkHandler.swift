@@ -112,6 +112,7 @@ extension NetworkHandler {
     private func parseURLRequestData(data: Data?, response: URLResponse?, error: Error?, completion: @escaping NetworkServiceCompletion) {
 
         if let _ = error {
+            print(NetworkError.noInternet.localizedDescription)
             completion(.failure(NetworkError.noInternet))
             return
         }

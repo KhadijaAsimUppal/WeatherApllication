@@ -14,7 +14,7 @@ enum WeatherAPI {
 
 extension WeatherAPI: EndPointType {
     var baseURLString: String {
-        return "api.openweathermap.org/data/2.5/forecast"
+        return "https://api.openweathermap.org/data/2.5/"
     }
 
     var baseURL: URL {
@@ -25,7 +25,7 @@ extension WeatherAPI: EndPointType {
     var path: String {
          switch  self {
          case .getForecast:
-             return " "
+             return "forecast"
          }
      }
 
@@ -37,7 +37,7 @@ extension WeatherAPI: EndPointType {
         var params : HTTPParameters? = nil
         switch self {
         case .getForecast(let cityID):
-            params  = ["APIId": APIKey.key, "CityId": cityID]
+            params  = ["appid": APIKey.key, "id": cityID]
         }
         return .request(urlParams: params)
     }
