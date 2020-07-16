@@ -21,7 +21,7 @@ struct WeatherForecastService {
 
 extension WeatherForecastService: DataModelDecoder {
 
-    func fetchWeatherForecast(cityId: String, _ completion: @escaping ForecastRequestCompletion){
+    func fetchWeatherForecast(_ cityId: String, completion: @escaping ForecastRequestCompletion){
         let endPoint = WeatherAPI.getForecast(cityID: cityId)
         networkHandler.fetchData(endPoint) {(result) in
             switch result {
