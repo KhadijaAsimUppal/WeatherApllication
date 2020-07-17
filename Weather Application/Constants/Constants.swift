@@ -20,3 +20,7 @@ enum NotificationNames {
 enum Identifiers {
     static let searchCellIdentifier = "searchCell"
 }
+
+enum Text {
+    static let searchBarPlaceholderText = "Search City"
+}

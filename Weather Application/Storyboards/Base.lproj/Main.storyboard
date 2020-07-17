@@ -34,35 +34,35 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="60" id="Tcd-e6-WcN" customClass="SearchTableViewCell" customModule="Weather_Application" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="53" id="Tcd-e6-WcN" customClass="SearchTableViewCell" customModule="Weather_Application" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tcd-e6-WcN" id="BuX-2d-tR4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="q4z-cN-Nx7">
-                                                    <rect key="frame" x="8" y="8" width="48" height="44"/>
+                                                    <rect key="frame" x="20" y="8" width="39.5" height="37"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yx5-AM-WJK" userLabel="City Name Label">
-                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="39.5" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sg-pG-5za" userLabel="Country Name Label">
-                                                            <rect key="frame" x="0.0" y="27" width="48" height="17"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <nil key="textColor"/>
+                                                            <rect key="frame" x="0.0" y="22.5" width="39.5" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="q4z-cN-Nx7" secondAttribute="bottom" constant="8" id="ed0-gG-A4b"/>
-                                                <constraint firstItem="q4z-cN-Nx7" firstAttribute="top" secondItem="BuX-2d-tR4" secondAttribute="top" constant="8" id="f4i-Nr-jCZ"/>
-                                                <constraint firstItem="q4z-cN-Nx7" firstAttribute="leading" secondItem="BuX-2d-tR4" secondAttribute="leading" constant="8" id="sZB-qt-T0c"/>
+                                                <constraint firstItem="q4z-cN-Nx7" firstAttribute="top" secondItem="BuX-2d-tR4" secondAttribute="top" constant="8" id="MIV-8Y-V43"/>
+                                                <constraint firstAttribute="bottom" secondItem="q4z-cN-Nx7" secondAttribute="bottom" constant="8" id="MvJ-qy-3Qt"/>
+                                                <constraint firstItem="q4z-cN-Nx7" firstAttribute="leading" secondItem="BuX-2d-tR4" secondAttribute="leading" constant="20" id="Urs-EX-MTJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

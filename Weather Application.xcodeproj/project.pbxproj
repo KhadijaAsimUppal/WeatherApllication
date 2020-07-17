@@ -136,6 +136,17 @@
 			path = Binder;
 			sourceTree = "<group>";
 		};
+		4A3912D324C1AE460056FCAF /* Search City */ = {
+			isa = PBXGroup;
+			children = (
+				4A3912C524C188AD0056FCAF /* SearchVC.swift */,
+				4A3912CA24C18A400056FCAF /* SearchVM.swift */,
+				4A3912C724C189440056FCAF /* SearchTableViewCell.swift */,
+				4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */,
+			);
+			path = "Search City";
+			sourceTree = "<group>";
+		};
 		4AB656D824BEF39600207F4E = {
 			isa = PBXGroup;
 			children = (
@@ -216,11 +227,8 @@
 		4AD43D2624BF1706003944E8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4A3912D324C1AE460056FCAF /* Search City */,
 				4AB656E824BEF39600207F4E /* ViewController.swift */,
-				4A3912C524C188AD0056FCAF /* SearchVC.swift */,
-				4A3912CA24C18A400056FCAF /* SearchVM.swift */,
-				4A3912C724C189440056FCAF /* SearchTableViewCell.swift */,
-				4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";

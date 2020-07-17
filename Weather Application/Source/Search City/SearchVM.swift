@@ -11,9 +11,14 @@ import Foundation
 class SearchVM {
     lazy private var citiesService = CitiesService()
     var cities : Bindable<[CityModel?]?> = Bindable([])
+    var filteredCities : Bindable<[CityModel?]?> = Bindable([])
 
     var citiesCount: Int {
         return cities.value?.count ?? 0
+    }
+
+    var filteredCitiesCount: Int {
+        return filteredCities.value?.count ?? 0
     }
 
     init() {

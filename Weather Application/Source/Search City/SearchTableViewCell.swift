@@ -18,13 +18,11 @@ class SearchTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
-
 }
 
 extension SearchTableViewCell {
 
-    func configureCell(_ model: CityModel?) {
+    func setUpAndConfigureCell(_ model: CityModel?) {
         vm.cityModel = model
         setUpUI()
     }
