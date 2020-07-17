@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class SearchTableViewCellVM {
+    var cityModel: CityModel?
+
+    var cityString: String {
+        return cityModel?.name ?? " "
+    }
+
+    var countryString: String {
+        return cityModel?.country ?? " "
+    }
+}

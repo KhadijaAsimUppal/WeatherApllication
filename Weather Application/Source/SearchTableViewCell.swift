@@ -10,15 +10,27 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+
+    var vm = SearchTableViewCellVM()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+}
+
+extension SearchTableViewCell {
+
+    func configureCell(_ model: CityModel?) {
+        vm.cityModel = model
+        setUpUI()
     }
 
+    func setUpUI() {
+        cityLabel.text = vm.cityString
+        countryLabel.text = vm.countryString
+    }
 }

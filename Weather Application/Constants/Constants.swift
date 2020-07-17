@@ -16,3 +16,7 @@ enum NotificationNames {
     static let networkReachability = "networkReachability"
     static let weatherNotification = "weather-notification"
 }
+
+enum Identifiers {
+    static let searchCellIdentifier = "searchCell"
+}

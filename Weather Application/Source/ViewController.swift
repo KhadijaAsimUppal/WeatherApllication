@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     lazy private var forecastService = WeatherForecastService(NetworkHandler())
-    lazy private var citiesService = CitiesService(NetworkHandler())
+    lazy private var citiesService = CitiesService()
     var forecast: WeatherForecastResult? {
         didSet {
             print(forecast as Any)

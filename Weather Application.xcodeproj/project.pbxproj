@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3912C624C188AD0056FCAF /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912C524C188AD0056FCAF /* SearchVC.swift */; };
+		4A3912C824C189440056FCAF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912C724C189440056FCAF /* SearchTableViewCell.swift */; };
+		4A3912CB24C18A400056FCAF /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912CA24C18A400056FCAF /* SearchVM.swift */; };
+		4A3912CD24C18D860056FCAF /* SearchTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */; };
+		4A3912D224C195110056FCAF /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912D124C195100056FCAF /* Bindable.swift */; };
 		4AB656E524BEF39600207F4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB656E424BEF39600207F4E /* AppDelegate.swift */; };
 		4AB656E724BEF39600207F4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB656E624BEF39600207F4E /* SceneDelegate.swift */; };
 		4AB656E924BEF39600207F4E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB656E824BEF39600207F4E /* ViewController.swift */; };
@@ -56,6 +61,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A3912C524C188AD0056FCAF /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		4A3912C724C189440056FCAF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		4A3912CA24C18A400056FCAF /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellVM.swift; sourceTree = "<group>"; };
+		4A3912D124C195100056FCAF /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		4AB656E124BEF39600207F4E /* Weather Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB656E424BEF39600207F4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB656E624BEF39600207F4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A3912D024C195010056FCAF /* Binder */ = {
+			isa = PBXGroup;
+			children = (
+				4A3912D124C195100056FCAF /* Bindable.swift */,
+			);
+			path = Binder;
+			sourceTree = "<group>";
+		};
 		4AB656D824BEF39600207F4E = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +159,7 @@
 		4AB656E324BEF39600207F4E /* Weather Application */ = {
 			isa = PBXGroup;
 			children = (
+				4A3912D024C195010056FCAF /* Binder */,
 				4AD43D5524BF503F003944E8 /* Service */,
 				4AD43D4524BF27E0003944E8 /* Models */,
 				4AD43D4224BF2788003944E8 /* Utilities */,
@@ -198,6 +217,10 @@
 			isa = PBXGroup;
 			children = (
 				4AB656E824BEF39600207F4E /* ViewController.swift */,
+				4A3912C524C188AD0056FCAF /* SearchVC.swift */,
+				4A3912CA24C18A400056FCAF /* SearchVM.swift */,
+				4A3912C724C189440056FCAF /* SearchTableViewCell.swift */,
+				4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -435,6 +458,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3912C624C188AD0056FCAF /* SearchVC.swift in Sources */,
 				4AD43D4A24BF29BA003944E8 /* Network Reachability.swift in Sources */,
 				4AD43D4724BF27F2003944E8 /* ErrorModel.swift in Sources */,
 				4AB656E924BEF39600207F4E /* ViewController.swift in Sources */,
@@ -448,15 +472,19 @@
 				4AD43D3324BF2199003944E8 /* HTTPMethod.swift in Sources */,
 				4AD43D3724BF220D003944E8 /* HTTPParameterEncoder.swift in Sources */,
 				4AD43D5224BF4A66003944E8 /* WeatherMeasurementModel.swift in Sources */,
+				4A3912CB24C18A400056FCAF /* SearchVM.swift in Sources */,
 				4AB656E524BEF39600207F4E /* AppDelegate.swift in Sources */,
 				4AD43D5024BF498B003944E8 /* WeatherDescriptionModel.swift in Sources */,
 				4AD43D4124BF2605003944E8 /* NetworkHandler.swift in Sources */,
 				4AD43D3524BF21AD003944E8 /* HTTPTask.swift in Sources */,
 				4AD43D4424BF27A0003944E8 /* DataModelDecoder.swift in Sources */,
+				4A3912C824C189440056FCAF /* SearchTableViewCell.swift in Sources */,
 				4AD43D2C24BF1793003944E8 /* EndPointType.swift in Sources */,
+				4A3912D224C195110056FCAF /* Bindable.swift in Sources */,
 				4AB656E724BEF39600207F4E /* SceneDelegate.swift in Sources */,
 				4ABB145B24C05639003A3681 /* CitiesService.swift in Sources */,
 				4AD43D3024BF2066003944E8 /* Constants.swift in Sources */,
+				4A3912CD24C18D860056FCAF /* SearchTableViewCellVM.swift in Sources */,
 				4AD43D5424BF4ECD003944E8 /* CityModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
