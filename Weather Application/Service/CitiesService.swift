@@ -14,7 +14,7 @@ typealias CitiesFetchCompletion = (CitiesResult)->()
 struct CitiesService: DataModelDecoder {
 
     func fetchCities(_ completion: @escaping CitiesFetchCompletion) {
-        guard let path = Bundle.main.url(forResource: "city.list", withExtension: "json") else {return}
+        guard let path = Bundle.main.url(forResource: "cityList", withExtension: "json") else {return}
         let jsonData = try? Data(contentsOf: path)
         do {
             let cities : [CityModel?]? = try self.decodeModel(data: jsonData)

@@ -24,3 +24,7 @@ enum Identifiers {
 enum Text {
     static let searchBarPlaceholderText = "Search City"
 }
+
+enum searchState {
+    case filtered, unfiltered
+}

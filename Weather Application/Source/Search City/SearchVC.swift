@@ -26,6 +26,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUISearchController()
+        bindVM()
 
     }
 
@@ -41,14 +42,20 @@ extension SearchVC {
         definesPresentationContext = true
     }
 
+    func bindVM() {
+        vm.allCities.bindAndTrigger { [weak self] (value) in
+            self?.tableView.reloadData()
+        }
+        vm.cities.bind { [weak self] (value) in
+            self?.tableView.reloadData()
+        }
+    }
+
 }
 
 
 extension SearchVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return vm.filteredCitiesCount
-        }
         return vm.citiesCount
     }
 
@@ -56,12 +63,7 @@ extension SearchVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.searchCellIdentifier, for: indexPath) as? SearchTableViewCell else {
             return UITableViewCell()
         }
-        if isFiltering {
-            cell.setUpAndConfigureCell(vm.filteredCities.value?[indexPath.row])
-        }
-        else {
-            cell.setUpAndConfigureCell(vm.cities.value?[indexPath.row])
-        }
+        cell.setUpAndConfigureCell(vm.citiesList?[indexPath.row])
         return cell
     }
 }
@@ -70,15 +72,10 @@ extension SearchVC: UITableViewDataSource {
 extension SearchVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
-        filterCitiesForSearchText(searchBar.text ?? " ")
+        vm.setSearchState(isFiltering)
+        vm.filterCitiesForSearchText(searchBar.text ?? " ")
     }
 
-    func filterCitiesForSearchText(_ searchText: String) {
-        vm.filteredCities.value = vm.cities.value?.filter
-            {($0?.name?.lowercased().contains(searchText.lowercased()) ?? false)
-        }
-      tableView.reloadData()
-    }
 }
 
 
