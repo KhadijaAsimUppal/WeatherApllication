@@ -24,7 +24,7 @@ enum Identifiers {
 enum Text {
     static let searchBarPlaceholderText = "Search City"
 }
-
+//CR: All the type case should start with capital letters replace searchState with SearchState
 enum searchState {
     case filtered, unfiltered
 }
