@@ -15,6 +15,7 @@ class ForecastMainVM {
             organiseForecastResult()
         }
     }
+
     init() {
         fetchForecast()
     }
@@ -34,11 +35,13 @@ extension ForecastMainVM {
 
     func organiseForecastResult() {
         var dateWiseForecastDict: [String: [WeatherForecastModel?]] = [:]
-        let dateList = forecast?.list?.compactMap { $0?.dtTxt?.dateStringWithoutTime()}.removeDuplicates()
+        let dateList = forecast?.list?.compactMap { $0?.dtTxt?.dateStringWithoutTime()
+        }.removeDuplicates()
+
         dateList?.forEach {
             let key = $0
             let singleDayForecast = forecast?.list?.filter {
-                return $0?.dtTxt?.dateStringWithoutTime() == key
+                $0?.dtTxt?.dateStringWithoutTime() == key
             }
             dateWiseForecastDict[key] = singleDayForecast
         }
