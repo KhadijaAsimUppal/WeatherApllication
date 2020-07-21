@@ -16,10 +16,24 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tempMinMaxLabel: UILabel!
 
     var vm = CollectionViewCellVM()
+
+    override func awakeFromNib() {
+      //  bindVM()
+    }
+
+    func bindVM() {
+        vm.weatherIcon.bind {[weak self] (image) in
+            DispatchQueue.main.async {
+                self?.icon.image = image
+            }
+        }
+    }
 }
 
 extension CollectionViewCell {
     func configureCell() {
+        bindVM()
+        vm.fetchIcon()
         timeLabel.text = vm.timeString
         tempConstantLabel.text = vm.temperatureString
         tempMinMaxLabel.text = vm.temperatureMinMaxString
