@@ -43,10 +43,11 @@
                                                             <rect key="frame" x="0.0" y="28.5" width="398" height="114.5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="114.5" id="Ba8-Le-xQW"/>
+                                                                <constraint firstAttribute="height" constant="114.5" id="SFL-yt-cb7"/>
                                                             </constraints>
-                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NOw-7L-2K7">
+                                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NOw-7L-2K7">
                                                                 <size key="itemSize" width="74" height="107"/>
+                                                                <size key="estimatedItemSize" width="74" height="107"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -72,7 +73,7 @@
                                                                                         <rect key="frame" x="0.0" y="19.5" width="58" height="53"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="50" id="4GZ-sn-pKY"/>
-                                                                                            <constraint firstAttribute="width" constant="58" id="Mnf-Nz-cjI"/>
+                                                                                            <constraint firstAttribute="width" constant="58" id="KuW-Tp-69z"/>
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 ' C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tV5-ON-0zF">
@@ -91,10 +92,10 @@
                                                                             </stackView>
                                                                         </subviews>
                                                                         <constraints>
+                                                                            <constraint firstItem="Ikf-Gd-NaG" firstAttribute="leading" secondItem="TP5-uR-Nj5" secondAttribute="leading" constant="8" id="0v5-zU-1Tq"/>
                                                                             <constraint firstAttribute="bottom" secondItem="Ikf-Gd-NaG" secondAttribute="bottom" id="6Jd-i6-RaP"/>
                                                                             <constraint firstAttribute="trailing" secondItem="Ikf-Gd-NaG" secondAttribute="trailing" constant="8" id="6tU-Tg-Qxb"/>
-                                                                            <constraint firstItem="Ikf-Gd-NaG" firstAttribute="leading" secondItem="TP5-uR-Nj5" secondAttribute="leading" constant="8" id="mkW-F8-9PT"/>
-                                                                            <constraint firstItem="Ikf-Gd-NaG" firstAttribute="top" secondItem="TP5-uR-Nj5" secondAttribute="top" id="wh4-LU-97u"/>
+                                                                            <constraint firstItem="Ikf-Gd-NaG" firstAttribute="top" secondItem="TP5-uR-Nj5" secondAttribute="top" id="WRM-q6-5vC"/>
                                                                         </constraints>
                                                                     </collectionViewCellContentView>
                                                                     <size key="customSize" width="74" height="107"/>
