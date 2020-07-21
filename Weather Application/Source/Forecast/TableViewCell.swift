@@ -26,7 +26,8 @@ class TableViewCell: UITableViewCell {
         }
     }
 
-    func configureCell() {
+    func setUpAndConfigureCell(_ model: DateWiseForecast?) {
+        vm.dateWiseForecast.value = model
         dateLabel.text = vm.dateString
     }
   
@@ -42,8 +43,7 @@ extension TableViewCell: UICollectionViewDataSource {
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.collectionViewCellIdentifier, for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
         let forecast = vm.dateWiseForecast.value?.forecast[indexPath.row]
-        cell.vm.forecast = forecast
-        cell.configureCell()
+        cell.setUpAndConfigureCell(forecast)
         return cell
 
     }

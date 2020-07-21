@@ -37,10 +37,8 @@ extension ForecastMainVC: UITableViewDataSource {
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tableViewCellIdentifier, for: indexPath) as? TableViewCell else {return UITableViewCell()}
         let dayWiseForecast = vm.forecasts.value[indexPath.row]
-        cell.vm.dateWiseForecast.value = dayWiseForecast
-        cell.configureCell()
+        cell.setUpAndConfigureCell(dayWiseForecast)
         return cell
-
     }
 
     

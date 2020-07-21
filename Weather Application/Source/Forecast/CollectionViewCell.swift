@@ -17,6 +17,10 @@ class CollectionViewCell: UICollectionViewCell {
 
     var vm = CollectionViewCellVM()
 
+    override func awakeFromNib() {
+        bindVM()
+    }
+
     func bindVM() {
         vm.weatherIcon.bind {[weak self] (image) in
             DispatchQueue.main.async {
@@ -27,8 +31,8 @@ class CollectionViewCell: UICollectionViewCell {
 }
 
 extension CollectionViewCell {
-    func configureCell() {
-        bindVM()
+    func setUpAndConfigureCell(_ model: WeatherForecastModel?) {
+        vm.forecast = model
         vm.fetchIcon()
         timeLabel.text = vm.timeString
         tempConstantLabel.text = vm.temperatureString
