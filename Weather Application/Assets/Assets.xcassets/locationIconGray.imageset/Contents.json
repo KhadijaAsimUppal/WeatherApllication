@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "343-3435483_wikiversity-mooc-icon-navigation-white-navigation-icon.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "343-3435483_wikiversity-mooc-icon-navigation-white-navigation-icon-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "343-3435483_wikiversity-mooc-icon-navigation-white-navigation-icon-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
