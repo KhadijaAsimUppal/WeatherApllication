@@ -14,9 +14,6 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        dateFormatter.calendar = Calendar(identifier: .iso8601)
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter.string(from: self)
     }
 /// Returns string for time without date components in formate *h:mm a*
@@ -24,9 +21,6 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.dateFormat = "h:mm a"
-        dateFormatter.calendar = Calendar(identifier: .iso8601)
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter.string(from: self)
     }
 
@@ -34,9 +28,6 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.dateFormat = "EEEE, MMMM d, yyyy"
-        dateFormatter.calendar = Calendar(identifier: .iso8601)
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter.string(from: self)
     }
 

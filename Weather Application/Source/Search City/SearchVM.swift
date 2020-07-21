@@ -47,6 +47,8 @@ extension SearchVM {
         guard !searchText.isEmpty else {currentState = .unfiltered; return}
         currentState = .filtered
         cities.value = allCities?.filter {($0?.name?.lowercased().contains(searchText.lowercased()) ?? false)}
+     
+
     }
 
 }

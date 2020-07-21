@@ -19,7 +19,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kaP-H8-he8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPS-Dk-Xe8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FPS-Dk-Xe8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -39,49 +39,50 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="80d-fs-MQC">
+                                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="80d-fs-MQC">
                                                             <rect key="frame" x="0.0" y="28.5" width="398" height="114.5"/>
                                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="114.5" id="Ba8-Le-xQW"/>
                                                             </constraints>
                                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NOw-7L-2K7">
-                                                                <size key="itemSize" width="48" height="108"/>
+                                                                <size key="itemSize" width="74" height="107"/>
                                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="forecastCell" id="Zga-Bb-tyy" customClass="CollectionViewCell" customModule="Weather_Application" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="4" width="59" height="107"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="74" height="107"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TP5-uR-Nj5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="107"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="74" height="107"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-Gd-NaG">
-                                                                                <rect key="frame" x="8" y="0.0" width="43" height="107"/>
+                                                                                <rect key="frame" x="8" y="0.0" width="58" height="107"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 / 27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j23-7B-92t">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="16"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="58" height="16"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.sun.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-pI-iZR">
-                                                                                        <rect key="frame" x="0.0" y="18.5" width="43" height="49"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.moon.rain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-pI-iZR">
+                                                                                        <rect key="frame" x="0.0" y="19.5" width="58" height="53"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="50" id="4GZ-sn-pKY"/>
+                                                                                            <constraint firstAttribute="width" constant="58" id="Mnf-Nz-cjI"/>
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 ' C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tV5-ON-0zF">
-                                                                                        <rect key="frame" x="0.0" y="74" width="43" height="14.5"/>
+                                                                                        <rect key="frame" x="0.0" y="74" width="58" height="14.5"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1I-67-HO7">
-                                                                                        <rect key="frame" x="0.0" y="92.5" width="43" height="14.5"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00 AM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1I-67-HO7">
+                                                                                        <rect key="frame" x="0.0" y="92.5" width="58" height="14.5"/>
                                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -96,7 +97,7 @@
                                                                             <constraint firstItem="Ikf-Gd-NaG" firstAttribute="top" secondItem="TP5-uR-Nj5" secondAttribute="top" id="wh4-LU-97u"/>
                                                                         </constraints>
                                                                     </collectionViewCellContentView>
-                                                                    <size key="customSize" width="59" height="107"/>
+                                                                    <size key="customSize" width="74" height="107"/>
                                                                     <connections>
                                                                         <outlet property="icon" destination="GAW-pI-iZR" id="8fR-rS-8tM"/>
                                                                         <outlet property="tempConstantLabel" destination="tV5-ON-0zF" id="1Dz-2a-HxC"/>
@@ -247,6 +248,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloud.sun.fill" catalog="system" width="128" height="88"/>
+        <image name="cloud.moon.rain.fill" catalog="system" width="128" height="117"/>
     </resources>
 </document>

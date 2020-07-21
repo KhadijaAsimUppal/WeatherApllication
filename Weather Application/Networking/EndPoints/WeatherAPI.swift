@@ -10,11 +10,17 @@ import Foundation
 
 enum WeatherAPI {
     case getForecast(cityID: String)
+    case getIcon(iconPath: String)
 }
 
 extension WeatherAPI: EndPointType {
     var baseURLString: String {
-        return "https://api.openweathermap.org/data/2.5/"
+        switch  self {
+        case .getIcon:
+            return "https://openweathermap.org/img/wn/"
+        case .getForecast:
+            return "https://api.openweathermap.org/data/2.5/"
+        }
     }
 
     var baseURL: URL {
@@ -26,6 +32,8 @@ extension WeatherAPI: EndPointType {
          switch  self {
          case .getForecast:
              return "forecast"
+         case .getIcon(let iconPath):
+            return "\(iconPath)@2x.png"
          }
      }
 
@@ -38,7 +46,10 @@ extension WeatherAPI: EndPointType {
         switch self {
         case .getForecast(let cityID):
             params  = ["appid": APIKey.key, "id": cityID]
+        case .getIcon:
+            params = nil
         }
+
         return .request(urlParams: params)
     }
 

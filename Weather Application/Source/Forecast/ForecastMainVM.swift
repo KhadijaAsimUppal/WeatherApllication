@@ -28,7 +28,7 @@ class ForecastMainVM {
 
 extension ForecastMainVM {
     func fetchForecast() {
-        forecastService.fetchWeatherForecast("71549") { (result) in
+        forecastService.fetchWeatherForecast("1172451") { (result) in
             switch result {
                 case.success(let forecast):
                     self.forecastResult = forecast

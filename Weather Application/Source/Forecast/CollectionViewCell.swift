@@ -17,10 +17,6 @@ class CollectionViewCell: UICollectionViewCell {
 
     var vm = CollectionViewCellVM()
 
-    override func awakeFromNib() {
-      //  bindVM()
-    }
-
     func bindVM() {
         vm.weatherIcon.bind {[weak self] (image) in
             DispatchQueue.main.async {

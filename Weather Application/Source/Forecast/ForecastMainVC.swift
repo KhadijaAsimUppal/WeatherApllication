@@ -23,7 +23,6 @@ class ForecastMainVC: UIViewController {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
-
         }
     }
 

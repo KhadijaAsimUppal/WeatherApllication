@@ -26,15 +26,13 @@ class CollectionViewCellVM {
         return (convertToCelcius(forecast?.main?.tempMax ?? 0).toString() + " / " + convertToCelcius(forecast?.main?.tempMin ?? 0).toString())
     }
 
-
-
 }
+
 
 extension CollectionViewCellVM {
     private func convertToCelcius(_ value: Double) -> Double {
         return (value - 273.15)
     }
-
 
     func fetchIcon() {
         guard let weatherIconPath = forecast?.weather?.first?.icon else {return}
@@ -44,11 +42,10 @@ extension CollectionViewCellVM {
                     self.weatherIcon.value = image
                 case .failure(let error):
                     debugPrint(error)
-                  }
-              }
-        
-        
+            }
+        }
     }
+
 }
 
 
