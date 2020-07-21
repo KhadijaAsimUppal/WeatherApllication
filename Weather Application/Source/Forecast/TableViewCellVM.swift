@@ -10,7 +10,7 @@ import Foundation
 
 class TableViewCellVM {
 
-    var dateWiseForecast: Bindable<DateWiseForecast?> 
+    var dateWiseForecast: Bindable<DateWiseForecast?> = Bindable(nil)
 
     init() {
         
