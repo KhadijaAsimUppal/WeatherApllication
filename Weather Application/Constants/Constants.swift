@@ -19,6 +19,8 @@ enum NotificationNames {
 
 enum Identifiers {
     static let searchCellIdentifier = "searchCell"
+    static let collectionViewCellIdentifier = "forecastCell"
+    static let tableViewCellIdentifier = "forecastsCell"
 }
 
 enum TextConstants {

@@ -11,5 +11,5 @@ import Foundation
 struct WeatherForecastModel: Decodable {
     let dtTxt: Date?
     let main: WeatherMeasurementModel?
-    let weather: [WeatherDescriptionModel?]?
+    let weather: [WeatherDescriptionModel]?
 }

@@ -10,7 +10,8 @@ import Foundation
 
 class ForecastMainVM {
     lazy private var forecastService = WeatherForecastService(NetworkHandler())
-    private var forecast: WeatherForecastResult? {
+    var forecasts: Bindable<[DateWiseForecast?]> = Bindable([])
+    private var forecastResult: WeatherForecastResult? {
         didSet {
             organiseForecastResult()
         }
@@ -26,7 +27,7 @@ extension ForecastMainVM {
         forecastService.fetchWeatherForecast("71549") { (result) in
             switch result {
                 case.success(let forecast):
-                    self.forecast = forecast
+                    self.forecastResult = forecast
                 case .failure(let error):
                     debugPrint(error)
             }
@@ -35,16 +36,22 @@ extension ForecastMainVM {
 
     func organiseForecastResult() {
         var dateWiseForecastDict: [String: [WeatherForecastModel?]] = [:]
-        let dateList = forecast?.list?.compactMap { $0?.dtTxt?.dateStringWithoutTime()
+        let dateList = forecastResult?.list?.compactMap { $0?.dtTxt?.dateStringWithoutTime()
         }.removeDuplicates()
 
         dateList?.forEach {
             let key = $0
-            let singleDayForecast = forecast?.list?.filter {
+            let singleDayForecast = forecastResult?.list?.filter {
                 $0?.dtTxt?.dateStringWithoutTime() == key
             }
             dateWiseForecastDict[key] = singleDayForecast
         }
-    }
+        
+        let dateWiseForcasts = dateWiseForecastDict.map {(key, forecast) in return DateWiseForecast(date: key, forecast: forecast)
+        }
+        forecasts.value = dateWiseForcasts
 
+    }
 }
+
+
