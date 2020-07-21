@@ -11,6 +11,7 @@ import UIKit
 class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var dateLabel: UILabel!
     let vm = TableViewCellVM()
 
     override func awakeFromNib() {
@@ -25,13 +26,16 @@ class TableViewCell: UITableViewCell {
         }
     }
 
-    
+    func configureCell() {
+        dateLabel.text = vm.dateString
+    }
+  
 }
 
 
 extension TableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vm.dateWiseForecast.value?.forecast.count ?? 0
+        return vm.dateWiseForecastCount
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

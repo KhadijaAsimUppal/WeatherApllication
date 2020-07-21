@@ -29,6 +29,17 @@ extension Date {
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
         return dateFormatter.string(from: self)
     }
+
+    func elaboratedDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .none
+        dateFormatter.dateFormat = "EEEE, MMMM d, yyyy"
+        dateFormatter.calendar = Calendar(identifier: .iso8601)
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+        return dateFormatter.string(from: self)
+    }
+
 }
 
 extension Array where Element:Equatable {
@@ -40,5 +51,11 @@ extension Array where Element:Equatable {
             }
         }
         return result
+    }
+}
+
+extension Double {
+    func toString() -> String {
+        return String(format: "%.f",self)
     }
 }

@@ -33,7 +33,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="W2x-4j-5L3">
                                                     <rect key="frame" x="8" y="8" width="398" height="143"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPO-1x-pwJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPO-1x-pwJ">
                                                             <rect key="frame" x="0.0" y="0.0" width="398" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -53,14 +53,14 @@
                                                             </collectionViewFlowLayout>
                                                             <cells>
                                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="forecastCell" id="Zga-Bb-tyy" customClass="CollectionViewCell" customModule="Weather_Application" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="4" width="43" height="107"/>
+                                                                    <rect key="frame" x="0.0" y="4" width="59" height="107"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TP5-uR-Nj5">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="107"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="59" height="107"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Ikf-Gd-NaG">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="43" height="107"/>
+                                                                                <rect key="frame" x="8" y="0.0" width="43" height="107"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="34 / 27" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j23-7B-92t">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="43" height="16"/>
@@ -82,7 +82,7 @@
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1I-67-HO7">
                                                                                         <rect key="frame" x="0.0" y="92.5" width="43" height="14.5"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
@@ -91,12 +91,12 @@
                                                                         </subviews>
                                                                         <constraints>
                                                                             <constraint firstAttribute="bottom" secondItem="Ikf-Gd-NaG" secondAttribute="bottom" id="6Jd-i6-RaP"/>
-                                                                            <constraint firstAttribute="trailing" secondItem="Ikf-Gd-NaG" secondAttribute="trailing" id="6tU-Tg-Qxb"/>
-                                                                            <constraint firstItem="Ikf-Gd-NaG" firstAttribute="leading" secondItem="TP5-uR-Nj5" secondAttribute="leading" id="mkW-F8-9PT"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="Ikf-Gd-NaG" secondAttribute="trailing" constant="8" id="6tU-Tg-Qxb"/>
+                                                                            <constraint firstItem="Ikf-Gd-NaG" firstAttribute="leading" secondItem="TP5-uR-Nj5" secondAttribute="leading" constant="8" id="mkW-F8-9PT"/>
                                                                             <constraint firstItem="Ikf-Gd-NaG" firstAttribute="top" secondItem="TP5-uR-Nj5" secondAttribute="top" id="wh4-LU-97u"/>
                                                                         </constraints>
                                                                     </collectionViewCellContentView>
-                                                                    <size key="customSize" width="43" height="107"/>
+                                                                    <size key="customSize" width="59" height="107"/>
                                                                     <connections>
                                                                         <outlet property="icon" destination="GAW-pI-iZR" id="8fR-rS-8tM"/>
                                                                         <outlet property="tempConstantLabel" destination="tV5-ON-0zF" id="1Dz-2a-HxC"/>
@@ -122,6 +122,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="collectionView" destination="80d-fs-MQC" id="Htt-h9-r2g"/>
+                                            <outlet property="dateLabel" destination="gPO-1x-pwJ" id="0EQ-zD-Ohs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

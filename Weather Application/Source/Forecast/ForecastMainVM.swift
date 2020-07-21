@@ -17,6 +17,10 @@ class ForecastMainVM {
         }
     }
 
+    var forecastsCount:  Int {
+        return forecasts.value.count
+    }
+
     init() {
         fetchForecast()
     }

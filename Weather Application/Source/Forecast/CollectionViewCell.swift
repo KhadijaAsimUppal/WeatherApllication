@@ -21,6 +21,7 @@ class CollectionViewCell: UICollectionViewCell {
 extension CollectionViewCell {
     func configureCell() {
         timeLabel.text = vm.timeString
-        
+        tempConstantLabel.text = vm.temperatureString
+        tempMinMaxLabel.text = vm.temperatureMinMaxString
     }
 }

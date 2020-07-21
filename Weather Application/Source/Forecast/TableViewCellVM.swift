@@ -11,6 +11,13 @@ import Foundation
 class TableViewCellVM {
 
     var dateWiseForecast: Bindable<DateWiseForecast?> = Bindable(nil)
+    var dateString: String {
+        return dateWiseForecast.value?.date ?? " "
+    }
+
+    var dateWiseForecastCount: Int {
+        return dateWiseForecast.value?.forecast.count ?? 0
+    }
 
     init() {
         

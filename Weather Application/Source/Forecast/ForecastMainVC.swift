@@ -31,7 +31,7 @@ class ForecastMainVC: UIViewController {
 
 extension ForecastMainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.forecasts.value.count
+        return vm.forecastsCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,6 +39,7 @@ extension ForecastMainVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tableViewCellIdentifier, for: indexPath) as? TableViewCell else {return UITableViewCell()}
         let dayWiseForecast = vm.forecasts.value[indexPath.row]
         cell.vm.dateWiseForecast.value = dayWiseForecast
+        cell.configureCell()
         return cell
 
     }
