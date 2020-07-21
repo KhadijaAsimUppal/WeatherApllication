@@ -11,6 +11,7 @@ import Foundation
 class ForecastMainVM {
     lazy private var forecastService = WeatherForecastService(NetworkHandler())
     var forecasts: Bindable<[DateWiseForecast?]> = Bindable([])
+    //CR: I dont rhink there is a need for this property you can directly pass the forcastResult recieved from your service to the "organiseForecastResult" method to keep things simplified
     private var forecastResult: WeatherForecastResult? {
         didSet {
             organiseForecastResult()
@@ -37,7 +38,25 @@ extension ForecastMainVM {
             }
         }
     }
-
+    //CR: Review the commented method below and see if it does what you wanted to do and is it in any way better than the existing "organiseForecastResult" method
+//    func organiseForecastResult() {
+//        var dateWiseForecastDict: [String: [WeatherForecastModel?]] = [:]
+//        forecastResult?.list?.forEach({ forcast in
+//            if let dateStr = forcast?.dtTxt?.dateStringWithoutTime() {
+//                if let _ = dateWiseForecastDict[dateStr] {
+//                    dateWiseForecastDict[dateStr]?.append(forcast)
+//                }else {
+//                    dateWiseForecastDict[dateStr] = [forcast]
+//                }
+//            }
+//        })
+//        var dateWiseForcasts = dateWiseForecastDict.map {(key, forecast) in return DateWiseForecast(date: key, forecast: forecast)}
+//        dateWiseForcasts = dateWiseForcasts.sorted(by: { (first, second) -> Bool in
+//            guard let firstDate = first.forecast.first??.dtTxt, let secondDate = second.forecast.first??.dtTxt else { return false }
+//            return firstDate < secondDate
+//        })
+//        forecasts.value = dateWiseForcasts
+//    }
     func organiseForecastResult() {
         var dateWiseForecastDict: [String: [WeatherForecastModel?]] = [:]
         let dateList = forecastResult?.list?.compactMap { $0?.dtTxt?.dateStringWithoutTime()
@@ -50,9 +69,8 @@ extension ForecastMainVM {
             }
             dateWiseForecastDict[key] = singleDayForecast
         }
-        
-        let dateWiseForcasts = dateWiseForecastDict.map {(key, forecast) in return DateWiseForecast(date: key, forecast: forecast)
-        }
+
+        let dateWiseForcasts = dateWiseForecastDict.map {(key, forecast) in return DateWiseForecast(date: key, forecast: forecast)}
         forecasts.value = dateWiseForcasts
 
     }

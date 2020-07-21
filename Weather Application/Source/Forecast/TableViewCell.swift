@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+//CR: Rename this class its too generic
 class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -42,7 +42,9 @@ extension TableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Identifiers.collectionViewCellIdentifier, for: indexPath) as? CollectionViewCell else {return UICollectionViewCell()}
+        //CR: move this code to vm and get model from there after having array index out of bounds check, this code is not safe.
         let forecast = vm.dateWiseForecast.value?.forecast[indexPath.row]
+        //CR: Replace this configure method with the implentation done for handling such cases in SearchTableViewCell
         cell.setUpAndConfigureCell(forecast)
         return cell
 

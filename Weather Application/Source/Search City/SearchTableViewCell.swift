@@ -17,14 +17,17 @@ class SearchTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        bindVM()
     }
 }
 
 extension SearchTableViewCell {
 
-    func setUpAndConfigureCell(_ model: CityModel?) {
-        vm.cityModel = model
-        setUpUI()
+    func bindVM() {
+        vm.cityModel?.bindAndTrigger({ [weak self] _ in
+            self?.setUpUI()
+        })
+        
     }
 
     func setUpUI() {

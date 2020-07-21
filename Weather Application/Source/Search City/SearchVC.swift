@@ -56,7 +56,10 @@ extension SearchVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.searchCellIdentifier, for: indexPath) as? SearchTableViewCell else {
             return UITableViewCell()
         }
-        cell.setUpAndConfigureCell(vm.citiesList?[indexPath.row])
+        //CR: As mentioned in last code review, do not access this list by citiesList[indexPath.row] directly. There should be a method or stored property in the vm which returns a city for that indexPath or a nil if that index is out of array bounds. This code is prone to crashes due to the async nature of use cases. lets say table view is relaoding and in the meantime cities array gets its data changed this code may crash.
+        //cell.setUpAndConfigureCell(vm.citiesList?[indexPath.row])
+        //CR: there shouldn't be a setupAndConfigureCell method in the VC. In true sense of MVVM you should directly set the city model in the cell's vm See how I implemented it in the SearchTableViewCell
+        cell.vm.cityModel?.value = vm.citiesList?[indexPath.row]
         return cell
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 
+//CR: collection view cell is very generic use names with something more concrete.
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
