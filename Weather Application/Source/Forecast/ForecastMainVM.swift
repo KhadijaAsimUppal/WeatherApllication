@@ -19,6 +19,13 @@ class ForecastMainVM {
     var countryNameString: String {
         return selectedCity.value?.country ?? " "
     }
+    var dateString: String? {
+        guard let date = forecasts.value[0]?.forecast[0]?.dtTxt else {return nil}
+        return date.elaboratedDateString()
+    }
+    var tempString: String {
+        return (forecasts.value[0]?.forecast[0]?.main?.temp ?? 0).convertToCelcius().toString(withFormat: "%.1f") + " °C"
+    }
     var forecastsCount:  Int {
         return forecasts.value.count
     }

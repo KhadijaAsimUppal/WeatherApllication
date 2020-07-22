@@ -10,6 +10,8 @@ import UIKit
 
 class ForecastMainVC: UIViewController {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -24,10 +26,11 @@ class ForecastMainVC: UIViewController {
         vm.fetchForecast()
         cityNameLabel.text = vm.cityNameString
         countryNameLabel.text = vm.countryNameString
+
     }
 
     func bindVM() {
-        vm.forecasts.bindAndTrigger { [weak self] (value) in
+        vm.forecasts.bindAndTrigger { [weak self] _ in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
