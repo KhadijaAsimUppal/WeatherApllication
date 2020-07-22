@@ -145,8 +145,8 @@
                                                                                         <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.moon.rain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-pI-iZR">
-                                                                                        <rect key="frame" x="0.0" y="19.5" width="58" height="53"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GAW-pI-iZR">
+                                                                                        <rect key="frame" x="0.0" y="20" width="58" height="50"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="50" id="4GZ-sn-pKY"/>
                                                                                             <constraint firstAttribute="width" constant="58" id="KuW-Tp-69z"/>
@@ -334,7 +334,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloud.moon.rain.fill" catalog="system" width="128" height="117"/>
         <image name="locationIconGray" width="312.5" height="312.5"/>
         <image name="mountains" width="360" height="780"/>
     </resources>

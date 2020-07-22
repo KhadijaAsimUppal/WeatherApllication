@@ -46,8 +46,8 @@ extension Array where Element:Equatable {
 }
 
 extension Double {
-    func toString() -> String {
-        return String(format: "%.1f",self)
+    func toString(withFormat format: String = "%.f") -> String {
+        return String(format:format,self)
     }
 
     func convertToCelcius() -> Double {
