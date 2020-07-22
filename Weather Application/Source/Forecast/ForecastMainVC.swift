@@ -10,12 +10,20 @@ import UIKit
 
 class ForecastMainVC: UIViewController {
 
+    @IBOutlet weak var countryNameLabel: UILabel!
+    @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    let vm = ForecastMainVM()
+    var vm = ForecastMainVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bindVM()
+    }
+
+    func setUpUI() {
+        vm.fetchForecast()
+        cityNameLabel.text = vm.cityNameString
+        countryNameLabel.text = vm.countryNameString
     }
 
     func bindVM() {
@@ -24,8 +32,21 @@ class ForecastMainVC: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+        vm.selectedCity.bindAndTrigger { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.setUpUI()
+            }
+        }
     }
 
+    @IBAction func locationButtunTapped(_ sender: Any) {
+        let vc = StoryBoards.main.instantiateViewController(withIdentifier: Identifiers.searchNavigationVCIdentifier)
+        vc.modalPresentationStyle = .fullScreen
+        DispatchQueue.main.async { [weak self] in
+            self?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
 }
 
 extension ForecastMainVC: UITableViewDataSource {

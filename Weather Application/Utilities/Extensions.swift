@@ -54,3 +54,12 @@ extension Double {
         return (self - 273.15)
     }
 }
+
+extension Int {
+    func toString(withFormat format: String = "%.f") -> String {
+        return String(format:format,self)
+    }
+
+}
+
+

@@ -26,6 +26,13 @@ class SearchVC: UIViewController {
         bindVM()
     }
 
+
+    @IBAction func backButtonTapped(_ sender: Any) {
+        DispatchQueue.main.async { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+    }
+
 }
 
 
@@ -60,6 +67,19 @@ extension SearchVC: UITableViewDataSource {
         return cell
     }
     
+}
+
+
+extension SearchVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = StoryBoards.main.instantiateViewController(withIdentifier: Identifiers.forecastMainVCIdentifier)
+        (vc as? ForecastMainVC)?.vm.selectedCity.value = vm.city(at: indexPath.row)
+        vc.modalPresentationStyle = .fullScreen
+        DispatchQueue.main.async { [weak self] in
+            self?.present(vc, animated: true, completion: nil)
+        }
+
+    }
 }
 
 

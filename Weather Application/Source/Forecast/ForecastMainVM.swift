@@ -11,18 +11,31 @@ import Foundation
 class ForecastMainVM {
     lazy private var forecastService = WeatherForecastService(NetworkHandler())
     var forecasts: Bindable<[DateWiseForecast?]> = Bindable([])
+    var selectedCity: Bindable<CityModel?> = Bindable(nil)
+
+    var cityNameString: String {
+        return selectedCity.value?.name ?? " "
+    }
+    var countryNameString: String {
+        return selectedCity.value?.country ?? " "
+    }
     var forecastsCount:  Int {
         return forecasts.value.count
     }
-
-    init() {
-        fetchForecast()
+    var cityID: String? {
+        guard let cityID = selectedCity.value?.id else {return nil}
+        return (String(cityID))
     }
 }
 
 extension ForecastMainVM {
     func fetchForecast() {
-        forecastService.fetchWeatherForecast("1172451") { (result) in
+        guard let cityId = cityID else {return}
+        fetchForecast(for: cityId)
+    }
+
+    private func fetchForecast(for id: String) {
+        forecastService.fetchWeatherForecast(id) { (result) in
             switch result {
                 case.success(let forecast):
                     self.organiseForecastResult(forecast)
@@ -74,4 +87,6 @@ extension ForecastMainVM {
         guard index >= 0, index < forecastsCount else { return nil }
         return forecasts.value[index]
     }
+
+
 }

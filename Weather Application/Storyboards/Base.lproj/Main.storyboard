@@ -11,7 +11,7 @@
         <!--Forecast MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ForecastMainVC" customModule="Weather_Application" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="forecastMainVC" id="BYZ-38-t0r" customClass="ForecastMainVC" customModule="Weather_Application" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,6 +38,9 @@
                                         <state key="normal" title="Button" image="locationIconGray">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="locationButtunTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6eJ-MS-9Mw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -234,6 +237,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="APA-1b-uLA"/>
                     <connections>
+                        <outlet property="cityNameLabel" destination="eUG-iq-enL" id="ryq-20-3k0"/>
+                        <outlet property="countryNameLabel" destination="zei-ZE-cci" id="cfy-fj-VKs"/>
                         <outlet property="tableView" destination="FPS-Dk-Xe8" id="3He-kB-JkG"/>
                     </connections>
                 </viewController>
@@ -241,10 +246,10 @@
             </objects>
             <point key="canvasLocation" x="1046.376811594203" y="97.098214285714278"/>
         </scene>
-        <!--SearchVC-->
+        <!--Location-->
         <scene sceneID="hy1-jf-B28">
             <objects>
-                <viewController id="b4G-gX-5d6" customClass="SearchVC" customModule="Weather_Application" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="searchVC" id="b4G-gX-5d6" customClass="SearchVC" customModule="Weather_Application" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hA0-3j-Fpj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,7 +310,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J0T-mD-lfj"/>
                     </view>
-                    <navigationItem key="navigationItem" id="9qQ-W8-cL2"/>
+                    <navigationItem key="navigationItem" title="Location" id="9qQ-W8-cL2">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="pbU-Zp-nHk">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="b4G-gX-5d6" id="7Md-R0-bRp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="B0I-Rv-zEf" id="0WU-ah-iQr"/>
                     </connections>
@@ -317,7 +328,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Frm-l0-ff0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pmf-1N-QZa" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="searchNavigationVC" automaticallyAdjustsScrollViewInsets="NO" id="pmf-1N-QZa" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0wa-zG-SMM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
