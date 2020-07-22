@@ -24,7 +24,7 @@ class SearchTableViewCell: UITableViewCell {
 extension SearchTableViewCell {
 
     func bindVM() {
-        vm.cityModel?.bindAndTrigger({ [weak self] _ in
+        vm.cityModel.bindAndTrigger({ [weak self] _ in
             self?.setUpUI()
         })
         

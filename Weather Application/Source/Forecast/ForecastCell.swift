@@ -8,15 +8,14 @@
 
 import UIKit
 
-//CR: collection view cell is very generic use names with something more concrete.
-class CollectionViewCell: UICollectionViewCell {
+class ForecastCell: UICollectionViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var tempConstantLabel: UILabel!
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var tempMinMaxLabel: UILabel!
 
-    var vm = CollectionViewCellVM()
+    var vm = ForecastVM()
 
     override func awakeFromNib() {
         bindVM()
@@ -28,12 +27,16 @@ class CollectionViewCell: UICollectionViewCell {
                 self?.icon.image = image
             }
         }
+        vm.forecast.bind {[weak self] _ in
+            DispatchQueue.main.async {
+                self?.setUpCell()
+            }
+        }
     }
 }
 
-extension CollectionViewCell {
-    func setUpAndConfigureCell(_ model: WeatherForecastModel?) {
-        vm.forecast = model
+extension ForecastCell {
+    func setUpCell() {
         vm.fetchIcon()
         timeLabel.text = vm.timeString
         tempConstantLabel.text = vm.temperatureString

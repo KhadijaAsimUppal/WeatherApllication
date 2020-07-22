@@ -35,10 +35,8 @@ extension ForecastMainVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tableViewCellIdentifier, for: indexPath) as? TableViewCell else {return UITableViewCell()}
-        let dayWiseForecast = vm.forecasts.value[indexPath.row]
-        //CR: Chnage this setup method the way I have changed it in the SearchTableViewCell, i.e set the model directly in the vm model and then use bindAndTrigger method for asking cell to load data
-        cell.setUpAndConfigureCell(dayWiseForecast)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.tableViewCellIdentifier, for: indexPath) as? DayWiseForecastsCell else {return UITableViewCell()}
+        cell.vm.dateWiseForecast.value = vm.forecasts(at: indexPath.row)
         return cell
     }
 

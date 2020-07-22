@@ -52,3 +52,11 @@ extension SearchVM {
     }
 
 }
+
+
+extension SearchVM {
+    func city(at index: Int) -> CityModel? {
+        guard index >= 0, index < citiesCount else { return nil }
+        return citiesList?[index]
+     }
+}

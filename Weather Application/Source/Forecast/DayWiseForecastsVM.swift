@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TableViewCellVM {
+class DayWiseForecastsVM {
 
     var dateWiseForecast: Bindable<DateWiseForecast?> = Bindable(nil)
     var dateString: String {
@@ -19,7 +19,11 @@ class TableViewCellVM {
         return dateWiseForecast.value?.forecast.count ?? 0
     }
 
-    init() {
-        
+}
+
+extension DayWiseForecastsVM {
+    func forecast(at index: Int) -> WeatherForecastModel? {
+        guard index >= 0, index < dateWiseForecastCount else { return nil }
+        return dateWiseForecast.value?.forecast[index]
     }
 }

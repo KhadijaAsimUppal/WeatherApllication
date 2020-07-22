@@ -9,13 +9,16 @@
 import Foundation
 
 class SearchTableViewCellVM {
-    var cityModel: Bindable<CityModel?>?
+    var cityModel: Bindable<CityModel?> = Bindable(nil)
 
     var cityString: String {
-        return cityModel?.value?.name ?? " "
+        return cityModel.value?.name ?? " "
     }
 
     var countryString: String {
-        return cityModel?.value?.country ?? " "
+        return cityModel.value?.country ?? " "
     }
+
 }
+
+
