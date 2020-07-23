@@ -22,6 +22,7 @@
 		4A66C92824C6D757006C4DF0 /* DayWiseForecastsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A66C92724C6D757006C4DF0 /* DayWiseForecastsCell.swift */; };
 		4A66C92A24C6D76C006C4DF0 /* DayWiseForecastsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A66C92924C6D76C006C4DF0 /* DayWiseForecastsVM.swift */; };
 		4A66C92C24C71BA8006C4DF0 /* WeatherIconService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A66C92B24C71BA8006C4DF0 /* WeatherIconService.swift */; };
+		4A9F329124C9D273001FB767 /* CitiesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9F329024C9D273001FB767 /* CitiesManager.swift */; };
 		4AB656E524BEF39600207F4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB656E424BEF39600207F4E /* AppDelegate.swift */; };
 		4AB656E724BEF39600207F4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB656E624BEF39600207F4E /* SceneDelegate.swift */; };
 		4AB656E924BEF39600207F4E /* ForecastMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB656E824BEF39600207F4E /* ForecastMainVC.swift */; };
@@ -85,6 +86,7 @@
 		4A66C92724C6D757006C4DF0 /* DayWiseForecastsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWiseForecastsCell.swift; sourceTree = "<group>"; };
 		4A66C92924C6D76C006C4DF0 /* DayWiseForecastsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayWiseForecastsVM.swift; sourceTree = "<group>"; };
 		4A66C92B24C71BA8006C4DF0 /* WeatherIconService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherIconService.swift; sourceTree = "<group>"; };
+		4A9F329024C9D273001FB767 /* CitiesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesManager.swift; sourceTree = "<group>"; };
 		4AB656E124BEF39600207F4E /* Weather Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Weather Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AB656E424BEF39600207F4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AB656E624BEF39600207F4E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A381D1824C9E15F00633C40 /* Data Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FD3BD24C9AA4600F5D8AD /* offlineForecast.json */,
+				4A3912D424C1B25A0056FCAF /* cityList.json */,
+			);
+			path = "Data Files";
+			sourceTree = "<group>";
+		};
 		4A3912D024C195010056FCAF /* Binder */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +168,7 @@
 		4A3912D324C1AE460056FCAF /* Search City */ = {
 			isa = PBXGroup;
 			children = (
+				4A9F328F24C9D247001FB767 /* CitiesManager */,
 				4A3912C524C188AD0056FCAF /* SearchVC.swift */,
 				4A3912CA24C18A400056FCAF /* SearchVM.swift */,
 				4A3912C724C189440056FCAF /* SearchTableViewCell.swift */,
@@ -176,6 +188,14 @@
 				4A66C92924C6D76C006C4DF0 /* DayWiseForecastsVM.swift */,
 			);
 			path = Forecast;
+			sourceTree = "<group>";
+		};
+		4A9F328F24C9D247001FB767 /* CitiesManager */ = {
+			isa = PBXGroup;
+			children = (
+				4A9F329024C9D273001FB767 /* CitiesManager.swift */,
+			);
+			path = CitiesManager;
 			sourceTree = "<group>";
 		};
 		4AB656D824BEF39600207F4E = {
@@ -360,11 +380,10 @@
 		4AD43D5524BF503F003944E8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				4A3912D424C1B25A0056FCAF /* cityList.json */,
+				4A381D1824C9E15F00633C40 /* Data Files */,
 				4AD43D5624BF505F003944E8 /* WeatherForecastService.swift */,
 				4ABB145A24C05639003A3681 /* CitiesService.swift */,
 				4A66C92B24C71BA8006C4DF0 /* WeatherIconService.swift */,
-				4A3FD3BD24C9AA4600F5D8AD /* offlineForecast.json */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -506,6 +525,7 @@
 				4AD43D4A24BF29BA003944E8 /* Network Reachability.swift in Sources */,
 				4AD43D4724BF27F2003944E8 /* ErrorModel.swift in Sources */,
 				4AB656E924BEF39600207F4E /* ForecastMainVC.swift in Sources */,
+				4A9F329124C9D273001FB767 /* CitiesManager.swift in Sources */,
 				4AD43D4C24BF449B003944E8 /* WeatherForecastResult.swift in Sources */,
 				4A66C92424C5F176006C4DF0 /* DateWiseForecast.swift in Sources */,
 				4AD43D3C24BF2556003944E8 /* NetworkRouter.swift in Sources */,

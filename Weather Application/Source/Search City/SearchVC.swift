@@ -53,10 +53,9 @@ extension SearchVC {
             }
         }
 
-        DispatchQueue.main.async {
+        DispatchQueue.global(qos: .userInteractive).async {
             self.vm.fetchCities()
         }
-
     }
 
 }

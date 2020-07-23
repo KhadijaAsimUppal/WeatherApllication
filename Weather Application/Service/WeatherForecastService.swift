@@ -20,7 +20,6 @@ struct WeatherForecastService {
 }
 
 extension WeatherForecastService: DataModelDecoder {
-
     func fetchWeatherForecast(_ cityId: String, completion: @escaping ForecastRequestCompletion){
         let endPoint = WeatherAPI.getForecast(cityID: cityId)
         networkHandler.fetchData(endPoint) {(result) in
@@ -48,7 +47,6 @@ extension WeatherForecastService: DataModelDecoder {
             }
         }
     }
-
 
     func fetchOfflineForecast(_ completion: @escaping ForecastRequestCompletion) {
         guard let path = Bundle.main.url(forResource: "offlineForecast", withExtension: "json") else {return}

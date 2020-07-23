@@ -22,6 +22,7 @@ class ForecastMainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindVM()
+        
     }
 
     func bindVM() {

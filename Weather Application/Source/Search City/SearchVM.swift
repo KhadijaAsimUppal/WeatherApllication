@@ -9,8 +9,7 @@
 import Foundation
 
 class SearchVM {
-
-    lazy private var citiesService = CitiesService()
+    
     var currentState: SearchState = .unfiltered
     var cities : Bindable<[CityModel?]?> = Bindable([])
     
@@ -32,14 +31,7 @@ class SearchVM {
 
 extension SearchVM {
     func fetchCities() {
-        citiesService.fetchCities() { (result) in
-            switch result {
-                case.success(let cities):
-                    self.allCities = cities
-                case .failure(let error):
-                    debugPrint(error)
-            }
-        }
+        self.allCities = CitiesManager.shared.cities
     }
 
     func filterCitiesForSearchText(_ searchText: String) {
