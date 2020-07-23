@@ -49,6 +49,7 @@ extension NetworkRouter: Router {
     @discardableResult
     func request(endPoint: EndPoint, completion: @escaping NetworkCompletion) -> URLSessionTask? {
         do {
+
             let urlRquest = try configureRequest(from: endPoint)
             let urlTask = URLSession.shared.dataTask(with: urlRquest, completionHandler: { (data, response, error) in
                 completion(data, response, error)

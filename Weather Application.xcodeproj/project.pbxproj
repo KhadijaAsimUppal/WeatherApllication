@@ -13,6 +13,7 @@
 		4A3912CD24C18D860056FCAF /* SearchTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */; };
 		4A3912D224C195110056FCAF /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3912D124C195100056FCAF /* Bindable.swift */; };
 		4A3912D524C1B25A0056FCAF /* cityList.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A3912D424C1B25A0056FCAF /* cityList.json */; };
+		4A3FD3BE24C9AA4600F5D8AD /* offlineForecast.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A3FD3BD24C9AA4600F5D8AD /* offlineForecast.json */; };
 		4A4F04D624C599F9004DB96C /* ForecastMainVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F04D524C599F9004DB96C /* ForecastMainVM.swift */; };
 		4A4F04D824C5A9B9004DB96C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4F04D724C5A9B9004DB96C /* Extensions.swift */; };
 		4A66C92224C5E1E7006C4DF0 /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A66C92124C5E1E7006C4DF0 /* ForecastCell.swift */; };
@@ -75,6 +76,7 @@
 		4A3912CC24C18D860056FCAF /* SearchTableViewCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellVM.swift; sourceTree = "<group>"; };
 		4A3912D124C195100056FCAF /* Bindable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
 		4A3912D424C1B25A0056FCAF /* cityList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cityList.json; sourceTree = "<group>"; };
+		4A3FD3BD24C9AA4600F5D8AD /* offlineForecast.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = offlineForecast.json; sourceTree = "<group>"; };
 		4A4F04D524C599F9004DB96C /* ForecastMainVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastMainVM.swift; sourceTree = "<group>"; };
 		4A4F04D724C5A9B9004DB96C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4A66C92124C5E1E7006C4DF0 /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				4AD43D5624BF505F003944E8 /* WeatherForecastService.swift */,
 				4ABB145A24C05639003A3681 /* CitiesService.swift */,
 				4A66C92B24C71BA8006C4DF0 /* WeatherIconService.swift */,
+				4A3FD3BD24C9AA4600F5D8AD /* offlineForecast.json */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A3FD3BE24C9AA4600F5D8AD /* offlineForecast.json in Resources */,
 				4AB656F124BEF39900207F4E /* LaunchScreen.storyboard in Resources */,
 				4A3912D524C1B25A0056FCAF /* cityList.json in Resources */,
 				4AB656EE24BEF39900207F4E /* Assets.xcassets in Resources */,

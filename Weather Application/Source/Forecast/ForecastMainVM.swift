@@ -9,33 +9,51 @@
 import Foundation
 
 class ForecastMainVM {
-    var currentViewMode: ViewMode = .live
+
     lazy private var forecastService = WeatherForecastService(NetworkHandler())
+    var currentViewMode: ViewMode = .live
     var forecasts: Bindable<[DateWiseForecast?]> = Bindable([])
     var selectedCity: Bindable<CityModel?> = Bindable(nil)
+    var offlineCity: CityModel?
 
     var cityNameString: String {
-        return selectedCity.value?.name ?? " "
+        switch currentViewMode {
+            case .live:
+                return selectedCity.value?.name ?? " "
+            case .offline:
+                return offlineCity?.name ?? " "
+        }
     }
+
     var countryNameString: String {
-        return selectedCity.value?.country ?? " "
+        switch currentViewMode {
+            case .live:
+                return selectedCity.value?.country ?? " "
+            case .offline:
+                return offlineCity?.country ?? " "
+        }
     }
-    var forecastsCount:  Int {
-        return forecasts.value.count
-    }
+
     var cityID: String? {
         guard let cityID = selectedCity.value?.id else {return nil}
         return (String(cityID))
     }
-    var shouldEnableLocationButton: Bool {
-           return currentViewMode == .live ? false : true
-       }
+
+    var forecastsCount:  Int {
+        return forecasts.value.count
+    }
 }
 
 extension ForecastMainVM {
     func fetchForecast() {
-        guard let cityId = cityID else {return}
-        fetchForecast(for: cityId)
+        switch currentViewMode {
+            case .live:
+                guard let cityId = cityID else {return}
+                fetchForecast(for: cityId)
+            case .offline:
+                fetchOfflineForecast()
+        }
+
     }
 
     private func fetchForecast(for id: String) {
@@ -47,6 +65,24 @@ extension ForecastMainVM {
                     debugPrint(error)
             }
         }
+    }
+
+    private func fetchOfflineForecast() {
+        forecastService.fetchOfflineForecast() { (result) in
+            switch result {
+                case.success(let forecast):
+                    self.organiseForecastResult(forecast)
+                    self.setOfflineCity(forecast.city)
+                case .failure(let error):
+                    debugPrint(error)
+            }
+        }
+
+    }
+
+    func setOfflineCity(_ city: CityModel?) {
+        guard let offlineCity = city else {return}
+        self.offlineCity = offlineCity
     }
     //CR: Review the commented method below and see if it does what you wanted to do and is it in any way better than the existing "organiseForecastResult" method
     func organiseForecastResult(_ forecastResult: WeatherForecastResult?) {
@@ -96,6 +132,10 @@ extension ForecastMainVM {
         currentViewMode.toggle()
     }
 
-
-
+    func resetValuesIfRequired() {
+        let isLiveMode = (currentViewMode == .live)
+        if isLiveMode, selectedCity.value == nil {
+            forecasts.value.removeAll()
+        }
+    }
 }

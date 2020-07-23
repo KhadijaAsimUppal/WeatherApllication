@@ -16,38 +16,37 @@ class ForecastMainVC: UIViewController {
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+
     var vm = ForecastMainVM()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bindVM()
-    }
-
-    func setUpUI() {
-        vm.fetchForecast()
-        cityNameLabel.text = vm.cityNameString
-        countryNameLabel.text = vm.countryNameString
 
     }
 
     func bindVM() {
         vm.forecasts.bindAndTrigger { [weak self] _ in
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self?.reloadTableView()
             }
         }
+
         vm.selectedCity.bindAndTrigger { [weak self] _ in
             DispatchQueue.main.async {
                 self?.setUpUI()
             }
         }
     }
+
     @IBAction func switchModeButtonTapped(_ sender: Any) {
         vm.toggleViewMode()
-        changeStateOfViewModeButton()
-        changeStateOfLocationButton()
-        updateUI()
-
+        setViewModeButtonLabel()
+        setLocationButtonState()
+        DispatchQueue.main.async {
+            self.setUpUI()
+            self.reloadTableView()
+        }
     }
     
     @IBAction func locationButtunTapped(_ sender: Any) {
@@ -59,6 +58,44 @@ class ForecastMainVC: UIViewController {
     }
     
 }
+
+
+extension ForecastMainVC {
+    private func setUpUI() {
+        setViewModeLabel()
+        setViewModeButtonLabel()
+        setLocationButtonState()
+        vm.fetchForecast()
+        vm.resetValuesIfRequired()
+        cityNameLabel.text = vm.cityNameString
+        countryNameLabel.text = vm.countryNameString
+
+    }
+
+    private func reloadTableView() {
+        tableView.reloadData()
+    }
+
+    private func setLocationButtonState() {
+        let isLiveMode = (vm.currentViewMode == .live)
+        locationButton.isUserInteractionEnabled = isLiveMode
+        locationButton.isEnabled = isLiveMode
+        locationButton.isHidden = !isLiveMode
+    }
+
+    private func setViewModeButtonLabel() {
+        let isLiveMode = (vm.currentViewMode == .live)
+        let viewModeButtonTitle = isLiveMode ? "OFFLINE" : "LIVE"
+        viewModeButton.setTitle(viewModeButtonTitle, for: .normal)
+    }
+
+    private func setViewModeLabel() {
+        let isLiveMode = (vm.currentViewMode == .live)
+        viewModeLabel.text = isLiveMode ? "LIVE FORECAST" : "OFFLINE"
+    }
+
+}
+
 
 extension ForecastMainVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,28 +109,7 @@ extension ForecastMainVC: UITableViewDataSource {
         return cell
     }
 
-    
-}
 
-extension ForecastMainVC {
-    func changeStateOfLocationButton() {
-        let isLiveMode = (vm.currentViewMode == .live)
-        locationButton.isUserInteractionEnabled = isLiveMode
-        locationButton.isEnabled = isLiveMode
-        locationButton.isHidden = !isLiveMode
-    }
-
-    func changeStateOfViewModeButton() {
-        let isLiveMode = (vm.currentViewMode == .live)
-        let viewModeButtonTitle = isLiveMode ? "OFFLINE" : "LIVE"
-        viewModeButton.setTitle(viewModeButtonTitle, for: .normal)
-    }
-
-    func updateUI() {
-        let isLiveMode = (vm.currentViewMode == .live)
-        viewModeLabel.text = isLiveMode ? "LIVE FORECAST" : "OFFLINE"
-        
-    }
 }
 
 
