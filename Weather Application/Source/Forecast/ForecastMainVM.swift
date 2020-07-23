@@ -44,6 +44,7 @@ class ForecastMainVM {
     }
 }
 
+
 extension ForecastMainVM {
     func fetchForecast() {
         switch currentViewMode {
@@ -79,13 +80,37 @@ extension ForecastMainVM {
         }
 
     }
+}
+
+
+extension ForecastMainVM {
+    func forecasts(at index: Int) -> DateWiseForecast? {
+        guard index >= 0, index < forecastsCount else { return nil }
+        return forecasts.value[index]
+    }
+
+    func toggleViewMode() {
+        currentViewMode.toggle()
+    }
+
+    func setDefaultCity() {
+        let isLiveMode = (currentViewMode == .live)
+        if isLiveMode, selectedCity.value == nil {
+            let defaultCity = CityModel(id: 1172451, name: "Lahore", country: "PK")
+            selectedCity.value = defaultCity
+        }
+    }
 
     func setOfflineCity(_ city: CityModel?) {
         guard let offlineCity = city else {return}
         self.offlineCity = offlineCity
     }
+}
+
+
+extension ForecastMainVM {
     //CR: Review the commented method below and see if it does what you wanted to do and is it in any way better than the existing "organiseForecastResult" method
-    func organiseForecastResult(_ forecastResult: WeatherForecastResult?) {
+    private func organiseForecastResult(_ forecastResult: WeatherForecastResult?) {
         var dateWiseForecastDict: [String: [WeatherForecastModel?]] = [:]
         forecastResult?.list?.forEach({ forcast in
             if let dateStr = forcast?.dtTxt?.dateStringWithoutTime() {
@@ -122,20 +147,5 @@ extension ForecastMainVM {
 //    }
 }
 
-extension ForecastMainVM {
-    func forecasts(at index: Int) -> DateWiseForecast? {
-        guard index >= 0, index < forecastsCount else { return nil }
-        return forecasts.value[index]
-    }
 
-    func toggleViewMode() {
-        currentViewMode.toggle()
-    }
 
-    func resetValuesIfRequired() {
-        let isLiveMode = (currentViewMode == .live)
-        if isLiveMode, selectedCity.value == nil {
-            forecasts.value.removeAll()
-        }
-    }
-}

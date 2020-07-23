@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class ForecastVM {
+    
     lazy private var iconService = WeatherIconService(NetworkHandler())
     var weatherIcon: Bindable<UIImage?> = Bindable(nil)
     var forecast: Bindable<WeatherForecastModel?> = Bindable(nil)
@@ -30,7 +31,6 @@ class ForecastVM {
 
 
 extension ForecastVM {
-
     func fetchIcon() {
         fetchIcon(for: forecast.value)
     }

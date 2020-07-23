@@ -19,17 +19,15 @@ class SearchTableViewCell: UITableViewCell {
         super.awakeFromNib()
         bindVM()
     }
-}
-
-extension SearchTableViewCell {
 
     func bindVM() {
         vm.cityModel.bindAndTrigger({ [weak self] _ in
             self?.setUpUI()
         })
-        
     }
+}
 
+extension SearchTableViewCell {
     func setUpUI() {
         cityLabel.text = vm.cityString
         countryLabel.text = vm.countryString

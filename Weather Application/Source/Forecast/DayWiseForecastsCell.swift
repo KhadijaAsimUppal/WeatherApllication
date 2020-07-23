@@ -12,6 +12,7 @@ class DayWiseForecastsCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var dateLabel: UILabel!
+    
     let vm = DayWiseForecastsVM()
 
     override func awakeFromNib() {

@@ -9,9 +9,11 @@
 import Foundation
 
 class SearchVM {
+
     lazy private var citiesService = CitiesService()
     var currentState: SearchState = .unfiltered
     var cities : Bindable<[CityModel?]?> = Bindable([])
+    
     private var allCities : [CityModel?]? {
         didSet {
             cities.value = (currentState == .unfiltered) ? allCities : cities.value

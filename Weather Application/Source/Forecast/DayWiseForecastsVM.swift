@@ -15,6 +15,7 @@ class DayWiseForecastsVM {
     var dateString: String? {
         return dateWiseForecast.value?.date.toDate()?.elaboratedDateString() ?? " "
     }
+    
     var dateWiseForecastCount: Int {
         return dateWiseForecast.value?.forecast.count ?? 0
     }

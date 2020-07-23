@@ -22,7 +22,6 @@ class ForecastMainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindVM()
-
     }
 
     func bindVM() {
@@ -37,6 +36,7 @@ class ForecastMainVC: UIViewController {
                 self?.setUpUI()
             }
         }
+        vm.setDefaultCity()
     }
 
     @IBAction func switchModeButtonTapped(_ sender: Any) {
@@ -66,10 +66,8 @@ extension ForecastMainVC {
         setViewModeButtonLabel()
         setLocationButtonState()
         vm.fetchForecast()
-        vm.resetValuesIfRequired()
         cityNameLabel.text = vm.cityNameString
         countryNameLabel.text = vm.countryNameString
-
     }
 
     private func reloadTableView() {
