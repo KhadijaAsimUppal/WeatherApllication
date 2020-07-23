@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "d910a0a138bd8348148846c74db1f1e9--dark-star-iphone--wallpaper.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "d910a0a138bd8348148846c74db1f1e9--dark-star-iphone--wallpaper-1.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "d910a0a138bd8348148846c74db1f1e9--dark-star-iphone--wallpaper-2.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
