@@ -11,10 +11,10 @@ import Foundation
 class DayWiseForecastsVM {
 
     var dateWiseForecast: Bindable<DateWiseForecast?> = Bindable(nil)
-    var dateString: String {
-        return dateWiseForecast.value?.date ?? " "
-    }
 
+    var dateString: String? {
+        return dateWiseForecast.value?.date.toDate()?.elaboratedDateString() ?? " "
+    }
     var dateWiseForecastCount: Int {
         return dateWiseForecast.value?.forecast.count ?? 0
     }

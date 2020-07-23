@@ -10,6 +10,7 @@ import UIKit
 
 class ForecastMainVC: UIViewController {
 
+    @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -39,7 +40,9 @@ class ForecastMainVC: UIViewController {
             }
         }
     }
-
+    @IBAction func switchModeButtonTapped(_ sender: Any) {
+    }
+    
     @IBAction func locationButtunTapped(_ sender: Any) {
         let vc = StoryBoards.main.instantiateViewController(withIdentifier: Identifiers.searchNavigationVCIdentifier)
         vc.modalPresentationStyle = .fullScreen

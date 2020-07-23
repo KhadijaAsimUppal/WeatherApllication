@@ -23,7 +23,7 @@ class ForecastVM {
     }
 
     var temperatureMinMaxString: String {
-        return ((forecast.value?.main?.tempMax ?? 0).convertToCelcius().toString() + "°" + " / " + (forecast.value?.main?.tempMin ?? 0).convertToCelcius().toString() + "°")
+        return ((forecast.value?.main?.tempMax ?? 0).convertToCelcius().toString(withFormat: "%.1f") + "°" + " / " + (forecast.value?.main?.tempMin ?? 0).convertToCelcius().toString(withFormat: "%.1f") + "°")
     }
 
 }
