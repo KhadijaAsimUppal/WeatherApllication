@@ -9,6 +9,7 @@
 import Foundation
 
 class ForecastMainVM {
+    var currentViewMode: ViewMode = .live
     lazy private var forecastService = WeatherForecastService(NetworkHandler())
     var forecasts: Bindable<[DateWiseForecast?]> = Bindable([])
     var selectedCity: Bindable<CityModel?> = Bindable(nil)
@@ -26,6 +27,9 @@ class ForecastMainVM {
         guard let cityID = selectedCity.value?.id else {return nil}
         return (String(cityID))
     }
+    var shouldEnableLocationButton: Bool {
+           return currentViewMode == .live ? false : true
+       }
 }
 
 extension ForecastMainVM {
@@ -87,6 +91,11 @@ extension ForecastMainVM {
         guard index >= 0, index < forecastsCount else { return nil }
         return forecasts.value[index]
     }
+
+    func toggleViewMode() {
+        currentViewMode.toggle()
+    }
+
 
 
 }

@@ -23,7 +23,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D5A-cV-Wik" userLabel="Title View">
                                 <rect key="frame" x="0.0" y="34" width="414" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE FORECAST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-p8-L7Q">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE FORECAST" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcP-p8-L7Q">
                                         <rect key="frame" x="141.5" y="30" width="131" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -43,7 +43,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zv-x8-lav">
-                                        <rect key="frame" x="25" y="27" width="49" height="26"/>
+                                        <rect key="frame" x="25" y="27" width="47" height="26"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                         <state key="normal" title="OFFLINE">
                                             <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -58,11 +58,9 @@
                                     <constraint firstAttribute="trailing" secondItem="eY7-F4-fjt" secondAttribute="trailing" constant="25" id="02A-rs-Pw5"/>
                                     <constraint firstItem="BcP-p8-L7Q" firstAttribute="centerX" secondItem="D5A-cV-Wik" secondAttribute="centerX" id="6B4-m7-Xbc"/>
                                     <constraint firstItem="7Zv-x8-lav" firstAttribute="leading" secondItem="D5A-cV-Wik" secondAttribute="leading" constant="25" id="8lz-LV-4iU"/>
-                                    <constraint firstItem="BcP-p8-L7Q" firstAttribute="leading" secondItem="7Zv-x8-lav" secondAttribute="trailing" constant="67.5" id="A6j-vu-00H"/>
                                     <constraint firstItem="BcP-p8-L7Q" firstAttribute="centerY" secondItem="D5A-cV-Wik" secondAttribute="centerY" id="Azf-kl-h96"/>
                                     <constraint firstItem="eY7-F4-fjt" firstAttribute="centerY" secondItem="D5A-cV-Wik" secondAttribute="centerY" id="GFu-Up-CRj"/>
                                     <constraint firstItem="7Zv-x8-lav" firstAttribute="centerY" secondItem="D5A-cV-Wik" secondAttribute="centerY" id="leT-O6-DZS"/>
-                                    <constraint firstItem="eY7-F4-fjt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BcP-p8-L7Q" secondAttribute="trailing" constant="8" symbolic="YES" id="ybM-j5-fmN"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t9y-cv-rDN" userLabel="Description Stack View">
@@ -233,6 +231,8 @@
                         <outlet property="countryNameLabel" destination="zei-ZE-cci" id="cfy-fj-VKs"/>
                         <outlet property="locationButton" destination="eY7-F4-fjt" id="mxB-xq-8T7"/>
                         <outlet property="tableView" destination="FPS-Dk-Xe8" id="3He-kB-JkG"/>
+                        <outlet property="viewModeButton" destination="7Zv-x8-lav" id="QSU-5P-S3X"/>
+                        <outlet property="viewModeLabel" destination="BcP-p8-L7Q" id="Ygh-r2-0Zj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

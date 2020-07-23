@@ -38,3 +38,11 @@ enum TextConstants {
 enum SearchState {
     case filtered, unfiltered
 }
+
+enum ViewMode {
+    case live, offline
+
+    mutating func toggle() {
+        self = (self ==  .live) ? .offline : .live
+    }
+}

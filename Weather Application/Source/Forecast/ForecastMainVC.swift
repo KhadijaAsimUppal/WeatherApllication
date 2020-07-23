@@ -10,6 +10,8 @@ import UIKit
 
 class ForecastMainVC: UIViewController {
 
+    @IBOutlet weak var viewModeButton: UIButton!
+    @IBOutlet weak var viewModeLabel: UILabel!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -41,6 +43,11 @@ class ForecastMainVC: UIViewController {
         }
     }
     @IBAction func switchModeButtonTapped(_ sender: Any) {
+        vm.toggleViewMode()
+        changeStateOfViewModeButton()
+        changeStateOfLocationButton()
+        updateUI()
+
     }
     
     @IBAction func locationButtunTapped(_ sender: Any) {
@@ -66,6 +73,27 @@ extension ForecastMainVC: UITableViewDataSource {
     }
 
     
+}
+
+extension ForecastMainVC {
+    func changeStateOfLocationButton() {
+        let isLiveMode = (vm.currentViewMode == .live)
+        locationButton.isUserInteractionEnabled = isLiveMode
+        locationButton.isEnabled = isLiveMode
+        locationButton.isHidden = !isLiveMode
+    }
+
+    func changeStateOfViewModeButton() {
+        let isLiveMode = (vm.currentViewMode == .live)
+        let viewModeButtonTitle = isLiveMode ? "OFFLINE" : "LIVE"
+        viewModeButton.setTitle(viewModeButtonTitle, for: .normal)
+    }
+
+    func updateUI() {
+        let isLiveMode = (vm.currentViewMode == .live)
+        viewModeLabel.text = isLiveMode ? "LIVE FORECAST" : "OFFLINE"
+        
+    }
 }
 
 
