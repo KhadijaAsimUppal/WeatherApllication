@@ -79,7 +79,7 @@ extension ForecastMainVC {
         let isLiveMode = (vm.currentViewMode == .live)
         locationButton.isUserInteractionEnabled = isLiveMode
         locationButton.isEnabled = isLiveMode
-        locationButton.isHidden = !isLiveMode
+       // locationButton.isHidden = !isLiveMode
     }
 
     private func setViewModeButtonLabel() {
