@@ -10,8 +10,6 @@ import UIKit
 
 class ForecastMainVC: UIViewController {
 
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!

@@ -41,14 +41,22 @@ extension SearchVC {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = TextConstants.searchBarPlaceholderText
+        searchController.hidesNavigationBarDuringPresentation = false
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
 
     func bindVM() {
-        vm.cities.bindAndTrigger { [weak self] (value) in
-            self?.tableView.reloadData()
+        vm.cities.bindAndTrigger { [weak self] _ in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
+
+        DispatchQueue.main.async {
+            self.vm.fetchCities()
+        }
+
     }
 
 }

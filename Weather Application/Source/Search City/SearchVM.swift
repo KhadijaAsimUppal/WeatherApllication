@@ -26,9 +26,6 @@ class SearchVM {
         return cities.value
     }
 
-    init() {
-        fetchCities()
-    }
 }
 
 extension SearchVM {
@@ -47,12 +44,10 @@ extension SearchVM {
         guard !searchText.isEmpty else {currentState = .unfiltered; return}
         currentState = .filtered
         cities.value = allCities?.filter {($0?.name?.lowercased().contains(searchText.lowercased()) ?? false)}
-     
 
     }
 
 }
-
 
 extension SearchVM {
     func city(at index: Int) -> CityModel? {
