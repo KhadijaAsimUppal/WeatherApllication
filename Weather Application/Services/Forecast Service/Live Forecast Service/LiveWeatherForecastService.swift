@@ -11,7 +11,7 @@ import Foundation
 typealias ForecastRequestResult = Result<WeatherForecastResult, Error>
 typealias ForecastRequestCompletion = (ForecastRequestResult)->()
 
-struct WeatherForecastService {
+struct LiveWeatherForecastService: WeatherForecastService {
     var networkHandler: NetworkHandler
 
     init(_ networkHandle: NetworkHandler) {
@@ -19,7 +19,7 @@ struct WeatherForecastService {
     }
 }
 
-extension WeatherForecastService: DataModelDecoder {
+extension LiveWeatherForecastService: DataModelDecoder {
     func fetchWeatherForecast(_ cityId: String, completion: @escaping ForecastRequestCompletion){
         let endPoint = WeatherAPI.getForecast(cityID: cityId)
         networkHandler.fetchData(endPoint) {(result) in
@@ -45,23 +45,6 @@ extension WeatherForecastService: DataModelDecoder {
             case .failure(let error):
                 completion(.failure(error))
             }
-        }
-    }
-
-    func fetchOfflineForecast(_ completion: @escaping ForecastRequestCompletion) {
-        guard let path = Bundle.main.url(forResource: "offlineForecast", withExtension: "json") else {return}
-        let jsonData = try? Data(contentsOf: path)
-        do {
-            let forecast : WeatherForecastResult? = try self.decodeModel(data: jsonData)
-            guard let forecastResult = forecast else {
-                completion(.failure(NetworkError.failed))
-                return
-            }
-            completion(.success(forecastResult))
-
-        } catch {
-            completion(.failure(NetworkError.unableToDecode))
-
         }
     }
     

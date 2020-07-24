@@ -10,7 +10,8 @@ import Foundation
 
 class ForecastMainVM {
 
-    lazy private var forecastService = WeatherForecastService(NetworkHandler())
+    private var forecastService: WeatherForecastService?
+    lazy private var forecastServiceProvider = ForecastServiceProvider()
     var currentViewMode: ViewMode = .live
     var forecasts: Bindable<[DateWiseForecast?]> = Bindable([])
     var selectedCity: Bindable<CityModel?> = Bindable(nil)
@@ -46,36 +47,27 @@ class ForecastMainVM {
 
 
 extension ForecastMainVM {
-    func fetchForecast() {
+    private func getForecastService() {
         switch currentViewMode {
-            case .live:
-                guard let cityId = cityID else {return}
-                fetchForecast(for: cityId)
-            case .offline:
-                fetchOfflineForecast()
-        }
-
-    }
-
-    private func fetchForecast(for id: String) {
-        forecastService.fetchWeatherForecast(id) { (result) in
-            switch result {
-                case.success(let forecast):
-                    self.organiseForecastResult(forecast)
-                case .failure(let error):
-                    debugPrint(error)
-            }
+        case .live:
+            forecastService = forecastServiceProvider.getForecastService(NetworkHandler())
+        case .offline:
+            forecastService = forecastServiceProvider.getForecastService(nil)
         }
     }
 
-    private func fetchOfflineForecast() {
-        forecastService.fetchOfflineForecast() { (result) in
+    func fetchForecast() {
+        getForecastService()
+        guard let cityId = cityID else {return}
+        forecastService?.fetchForecast(cityId) {(result) in
             switch result {
-                case.success(let forecast):
-                    self.organiseForecastResult(forecast)
+            case.success(let forecast):
+                self.organiseForecastResult(forecast)
+                if(self.currentViewMode == .offline) {
                     self.setOfflineCity(forecast.city)
-                case .failure(let error):
-                    debugPrint(error)
+                }
+            case .failure(let error):
+                debugPrint(error)
             }
         }
 

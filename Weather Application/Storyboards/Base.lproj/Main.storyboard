@@ -339,6 +339,6 @@
     </scenes>
     <resources>
         <image name="locationIconWhite" width="348" height="436"/>
-        <image name="mountainsDark" width="474" height="886"/>
+        <image name="mountainsDark" width="237" height="443"/>
     </resources>
 </document>
